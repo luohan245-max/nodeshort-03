@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NodeShort 落地页 · 含客服按钮版本</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-carousel { position: relative; height: clamp(260px, 55vw, 520px); overflow: hidden; border-radius: 14px; }
+    .fade-carousel .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
+    .fade-carousel .slide.active { opacity: 1; }
+    .carousel-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; padding: 4px 8px; border-radius: 9999px; background: rgba(0,0,0,.2); }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255,255,255,0.6); cursor: pointer; transition: transform .2s, background-color .2s; }
+    .dot.active { background-color: #f43f5e; transform: scale(1.1); }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-pink-50 to-rose-50 text-zinc-800">
+  <!-- 顶部品牌区 -->
+  <section class="text-center py-10 bg-gradient-to-r from-pink-100 to-orange-100">
+    <img src="images/水印logo.png" alt="NodeShort Logo" class="h-24 md:h-28 mx-auto"/>
+    <h1 class="text-2xl md:text-4xl font-bold text-rose-700 mt-3">每一部剧，都是你的收益剧场</h1>
+    <p class="mt-2 text-zinc-700 text-sm md:text-base">看剧、娱乐、收益三合一，全新体验影视社交生态</p>
+    <div class="mt-5 flex flex-col md:flex-row items-center justify-center gap-3">
+      <a href="https://t.me/NodeShortVN" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">加入 Telegram 官方群组</a>
+      <a href="https://www.nodeshort.com" target="_blank" class="px-6 py-3 rounded bg-rose-500 hover:bg-rose-600 text-white font-semibold shadow">访问官网</a>
+      <a href="https://t.me/NodeShort001" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">联系官方客服</a>
+    </div>
+  </section>
+
+  <!-- 平台亮点 -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10 bg-gradient-to-r from-fuchsia-50 to-rose-50 rounded-xl py-6 shadow-sm">
+    <h2 class="text-center text-xl md:text-2xl font-semibold text-rose-700">平台亮点</h2>
+    <div class="grid grid-cols-2 gap-4 mt-5 md:grid-cols-4">
+      <div class="text-center">
+        <h3 class="text-rose-800 font-semibold">边看剧即挖矿</h3>
+        <p class="text-sm text-zinc-600 mt-1">一边追剧一边领取金币和DP币。</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-rose-800 font-semibold">DP币产出机制</h3>
+        <p class="text-sm text-zinc-600 mt-1">核心代币DP每日释放，与影视收益挂钩。</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-rose-800 font-semibold">NFT身份徽章</h3>
+        <p class="text-sm text-zinc-600 mt-1">徽章解锁特权，提升收益上限。</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-rose-800 font-semibold">多层级推荐</h3>
+        <p class="text-sm text-zinc-600 mt-1">邀请好友赚佣金，搭建团队。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 平台界面展示 -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10 text-center">
+    <h2 class="text-xl md:text-2xl font-semibold text-rose-700">平台界面展示</h2>
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <img class="w-full rounded-lg shadow" src="images/首页界面.png" alt="首页界面"/>
+      <img class="w-full rounded-lg shadow" src="images/剧场界面.png" alt="剧场界面"/>
+      <img class="w-full rounded-lg shadow" src="images/排行榜界面.png" alt="排行榜界面"/>
+    </div>
+  </section>
+
+  <!-- 代币与徽章生态 -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10">
+    <h2 class="text-center text-xl md:text-2xl font-semibold text-rose-700">代币与徽章生态</h2>
+    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
+        <div class="flex items-center justify-center">
+          <img src="images/金币.png" alt="金币 GDC" class="w-16 h-16 object-contain" />
+        </div>
+        <h3 class="mt-3 text-center font-semibold text-zinc-800">边看剧边赚金币（GDC）</h3>
+        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">通过签到、抽奖、观看短剧获得 GDC。金币用于解锁剧集、参与抽奖、兑换奖励——注意力就是价值。</p>
+      </article>
+      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
+        <div class="flex items-center justify-center">
+          <img src="images/DP币.png" alt="DP币" class="w-16 h-16 object-contain" />
+        </div>
+        <h3 class="mt-3 text-center font-semibold text-zinc-800">DP币——真实收益凭证</h3>
+        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">平台核心代币，与平台收入与影视资产挂钩。“看剧即挖矿”，行为参与分红与回购，娱乐转化为真实价值。</p>
+      </article>
+      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
+        <div class="flex items-center justify-center">
+          <img src="images/钻石.png" alt="NDC 钻石" class="w-16 h-16 object-contain" />
+        </div>
+        <h3 class="mt-3 text-center font-semibold text-zinc-800">NDC——通往资产世界的钥匙</h3>
+        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">与美元 1:1 锚定，作为支付入口与价值枢纽。可用于购买 NFT 徽章、开通 VIP，打通内容与金融。</p>
+      </article>
+      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
+        <div class="flex items-center justify-center">
+          <img src="images/越南.png" alt="越南徽章 NFT" class="w-16 h-16 object-contain" />
+        </div>
+        <h3 class="mt-3 text-center font-semibold text-zinc-800">越南徽章 NFT——身份与特权</h3>
+        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">首批内容金融化参与者专属徽章。持有可获得 DP 币额外释放、专属剧集与社区治理权等增益。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 轮播图区 -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10">
+    <div class="fade-carousel shadow ring-1 ring-black/5" id="carousel">
+      <div class="slide active" style="background-image:url('images/3.png')"></div>
+      <div class="slide" style="background-image:url('images/13.png')"></div>
+      <div class="slide" style="background-image:url('images/65.png')"></div>
+      <div class="slide" style="background-image:url('images/75.png')"></div>
+      <div class="slide" style="background-image:url('images/83.png')"></div>
+      <div class="slide" style="background-image:url('images/106.png')"></div>
+      <div class="slide" style="background-image:url('images/116.png')"></div>
+      <div class="slide" style="background-image:url('images/138.png')"></div>
+      <div class="carousel-dots" id="dots"></div>
+    </div>
+  </section>
+
+  <!-- 底部CTA -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10">
+    <div class="rounded-xl p-6 bg-gradient-to-r from-orange-400 to-rose-500 text-center shadow flex flex-col md:flex-row items-center justify-center gap-3">
+      <a href="https://t.me/NodeShortVN" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">加入 Telegram 群组</a>
+      <a href="https://www.nodeshort.com/h5/#/pages/login/register?code=9HKKIP" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">立即注册</a>
+      <a href="https://t.me/NodeShort001" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">联系官方客服</a>
+    </div>
+  </section>
+
+  <footer class="mt-10 py-6 bg-rose-600">
+    <p class="text-center text-white text-xs">免责声明：本服务内容仅供娱乐，不构成任何投资建议。</p>
+  </footer>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.fade-carousel .slide'));
+    const dotsContainer = document.getElementById('dots');
+    let idx = 0, timer = null;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => jump(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function show(i){
+      slides[idx].classList.remove('active');
+      dotsContainer.children[idx].classList.remove('active');
+      idx = (i + slides.length) % slides.length;
+      slides[idx].classList.add('active');
+      dotsContainer.children[idx].classList.add('active');
+    }
+    function next(){ show(idx + 1); }
+    function start(){ stop(); timer = setInterval(next, 3000); }
+    function stop(){ if (timer) clearInterval(timer); }
+    function jump(i){ show(i); start(); }
+
+    start();
+    const carousel = document.getElementById('carousel');
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+  </script>
+</body>
+</html>
