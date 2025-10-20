@@ -10,7 +10,7 @@
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  if(!f._fbq)f._fbq=n;n.push=n;n;n.loaded=!0;n.version='2.0';
   n.queue=[];t=b.createElement(e);t.async=!0;
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
@@ -36,7 +36,7 @@
 <body class="bg-gradient-to-b from-pink-50 to-rose-50 text-zinc-800">
   <!-- Khu vực thương hiệu đầu trang -->
   <section class="text-center py-10 bg-gradient-to-r from-pink-100 to-orange-100">
-    <img src="images/水印logo.png" alt="Logo NodeShort" class="h-24 md:h-28 mx-auto"/>
+    <img src="images/logo-watermark.png" alt="Logo NodeShort" class="h-24 md:h-28 mx-auto"/>
     <h1 class="text-2xl md:text-4xl font-bold text-rose-700 mt-3">Mỗi bộ phim là một sân khấu lợi nhuận của bạn</h1>
     <p class="mt-2 text-zinc-700 text-sm md:text-base">Xem phim, giải trí và kiếm tiền – Trải nghiệm hệ sinh thái video xã hội mới</p>
     <div class="mt-5 flex flex-col md:flex-row items-center justify-center gap-3">
@@ -73,9 +73,9 @@
   <section class="max-w-screen-md mx-auto px-4 mt-10 text-center">
     <h2 class="text-xl md:text-2xl font-semibold text-rose-700">Hiển thị giao diện nền tảng</h2>
     <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-      <img class="w-full rounded-lg shadow" src="images/首页界面.png" alt="Giao diện trang chủ"/>
-      <img class="w-full rounded-lg shadow" src="images/剧场界面.png" alt="Giao diện rạp phim"/>
-      <img class="w-full rounded-lg shadow" src="images/排行榜界面.png" alt="Bảng xếp hạng"/>
+      <img class="w-full rounded-lg shadow" src="images/screen-home.png" alt="Giao diện trang chủ"/>
+      <img class="w-full rounded-lg shadow" src="images/screen-theater.png" alt="Giao diện rạp phim"/>
+      <img class="w-full rounded-lg shadow" src="images/screen-ranking.png" alt="Bảng xếp hạng"/>
     </div>
   </section>
 
@@ -85,28 +85,28 @@
     <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
       <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
         <div class="flex items-center justify-center">
-          <img src="images/金币.png" alt="Xu GDC" class="w-16 h-16 object-contain" />
+          <img src="images/icon-coin-gdc.png" alt="Xu GDC" class="w-16 h-16 object-contain" />
         </div>
         <h3 class="mt-3 text-center font-semibold text-zinc-800">Kiếm Xu (GDC) khi xem phim</h3>
         <p class="mt-2 text-sm text-zinc-600 leading-relaxed">Nhận Xu (GDC) thông qua điểm danh, quay thưởng, xem phim ngắn. Xu dùng để mở khoá tập phim, đổi quà, tham gia quay thưởng - Sự chú ý chính là giá trị.</p>
       </article>
       <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
         <div class="flex items-center justify-center">
-          <img src="images/DP币.png" alt="DP coin" class="w-16 h-16 object-contain" />
+          <img src="images/icon-coin-dp.png" alt="DP coin" class="w-16 h-16 object-contain" />
         </div>
         <h3 class="mt-3 text-center font-semibold text-zinc-800">DP coin – Bằng chứng lợi nhuận thực</h3>
         <p class="mt-2 text-sm text-zinc-600 leading-relaxed">Token cốt lõi của nền tảng, liên kết doanh thu và tài sản phim. “Xem phim là khai thác”, chia sẻ doanh thu và mua lại, giải trí trở thành giá trị thực.</p>
       </article>
       <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
         <div class="flex items-center justify-center">
-          <img src="images/钻石.png" alt="Kim cương NDC" class="w-16 h-16 object-contain" />
+          <img src="images/icon-diamond-ndc.png" alt="Kim cương NDC" class="w-16 h-16 object-contain" />
         </div>
         <h3 class="mt-3 text-center font-semibold text-zinc-800">Kim cương NDC – Chìa khoá bước vào thế giới tài sản</h3>
         <p class="mt-2 text-sm text-zinc-600 leading-relaxed">Được neo 1:1 với USD, làm trung tâm thanh toán và giá trị. Dùng để mua NFT, mở VIP, kết nối nội dung và tài chính.</p>
       </article>
       <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
         <div class="flex items-center justify-center">
-          <img src="images/越南.png" alt="Huy hiệu Việt Nam NFT" class="w-16 h-16 object-contain" />
+          <img src="images/badge-vn.png" alt="Huy hiệu Việt Nam NFT" class="w-16 h-16 object-contain" />
         </div>
         <h3 class="mt-3 text-center font-semibold text-zinc-800">Huy hiệu Việt Nam NFT – Danh tính & Quyền lợi</h3>
         <p class="mt-2 text-sm text-zinc-600 leading-relaxed">Dành cho người tham gia đầu tiên của nội dung tài chính hóa. Nắm giữ huy hiệu để nhận thêm DP coin, phim độc quyền và quyền quản trị cộng đồng.</p>
