@@ -1,767 +1,3 @@
-跳至内容
-历史聊天记录
-
-您说：
-已上传的图片
-怎么替换index
-ChatGPT 说：
-你现在在 GitHub 仓库的结构是这样的：
-
-nodeshort-03/
-└── NodeShort_Landing_FullAssets/
-    ├── images/
-    ├── index.html
-    └── README.md
-你想“替换 index.html”，其实有两种方式，看你是想手动替换还是命令行/上传工具替换。
-
-✅ 方法一：网页端直接替换（最简单）
-打开这个页面：
-https://github.com/luohan245-max/nodeshort-03/tree/main/NodeShort_Landing_FullAssets
-
-点击 index.html 文件。
-
-在右上角点击铅笔图标 ✏️（“Edit this file”）。
-
-删除里面的旧内容，把你新的 HTML 内容粘贴进去。
-
-往下滚，填写提交信息（例如：update index.html）。
-
-点击绿色按钮 “Commit changes”。
-
-你的 index.html 文件就被替换了。
-
-✅ 方法二：重新上传覆盖（适合你有完整新文件）
-在该目录下（即 NodeShort_Landing_FullAssets）点击右上角的 Add file → Upload files。
-
-选择你本地的新 index.html 文件上传。
-
-上传时 GitHub 会提示是否替换已有文件。点确认。
-
-Commit changes 完成。
-
-✅ 方法三（开发者方式）用 Git 命令行替换（适合熟悉 git 的人）
-# 克隆仓库
-git clone https://github.com/luohan245-max/nodeshort-03.git
-
-# 进入目录
-cd nodeshort-03/NodeShort_Landing_FullAssets
-
-# 替换 index.html 文件（复制新文件覆盖旧文件）
-cp /path/to/new/index.html ./index.html
-
-# 提交修改
-git add index.html
-git commit -m "update index.html"
-git push
-如果你是要在 Vercel 部署后自动更新：
-一旦你在 GitHub 提交了新的 index.html（无论哪种方式），
-Vercel 会自动重新部署并刷新页面。几分钟后访问 Vercel 链接即可看到更新效果。
-
-是否要我帮你检查一下目前的 index.html 文件结构，看是不是有路径错误导致图片在 Vercel 打不开？
-
-您说：
-index.html
-文件
-这个是源文件，需要你把Facebook的像素代码添加进去
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4246326045691268');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4246326045691268&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-ChatGPT 说：
-完美，我已经检查了你上传的源文件结构。要在你的落地页中加入 Facebook Pixel（像素）追踪代码，正确的位置是在 <head> 里，紧贴 <title> 或 <meta> 标签之后。
-我帮你改好的版本如下（仅在 <head> 部分新增了像素代码，其余内容不动）：
-
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NodeShort 落地页 · 含客服按钮版本</title>
-
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '4246326045691268');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=4246326045691268&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .fade-carousel { position: relative; height: clamp(260px, 55vw, 520px); overflow: hidden; border-radius: 14px; }
-    .fade-carousel .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
-    .fade-carousel .slide.active { opacity: 1; }
-    .carousel-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; padding: 4px 8px; border-radius: 9999px; background: rgba(0,0,0,.2); }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255,255,255,0.6); cursor: pointer; transition: transform .2s, background-color .2s; }
-    .dot.active { background-color: #f43f5e; transform: scale(1.1); }
-  </style>
-</head>
-操作方式
-打开你 GitHub 的 index.html 文件。
-
-点右上角的“✏️ Edit this file”。
-
-找到 <head> 部分，把我提供的这段替换掉原来的 <head> 前几行。
-
-往下滚到页面底部，点击绿色按钮 “Commit changes”。
-
-提交后，GitHub 会自动保存。
-如果你在 Vercel、Netlify 或 Cloudflare Pages 部署，几分钟后访问网址就能验证是否生效。
-
-验证方式：
-打开浏览器控制台 → Network → 搜索 fbevents.js，如果能看到这个请求，就说明 Pixel 已经正常加载。
-你也可以安装 Facebook Pixel Helper（Chrome 插件）来确认事件是否触发。
-
-是否希望我帮你把完整修改后的 index.html 文件打包好（你可以直接上传覆盖 GitHub）？
-
-您说：
-把我的源文件完整的用canvas模式呈现出来，方便我整体复制，并且需要你添加替换最新的这个代码，保证我的网页不受影响
-ChatGPT 说：
-已完成：我把你的完整 index.html 源码用「canvas模式」展开，并无损注入了最新 Facebook Pixel 代码（放在 <head> 里，Tailwind 与其余脚本样式全部保持原样）。你现在可以在右侧直接一键全选复制，然后覆盖到 GitHub 的 NodeShort_Landing_FullAssets/index.html。
-
-上线校验路径（标准操作）：
-
-推送后，用 Chrome 打开站点 → 开发者工具 → Network，搜索 fbevents.js 是否加载；
-
-安装 Facebook Pixel Helper 看是否捕获 PageView；
-
-若走 CDN/缓存，做一次 cache purge 或加 ?v=timestamp 强刷。
-
-需要我再补注册/按钮点击事件（fbq('track','Lead')/('CompleteRegistration') 等）到 CTA 链接上，保证投放回传更完整，我可以直接在这个 canvas 里帮你加好埋点。
-
-您说：
-好的，现在我想知道我的像素想要获取，点击加入telegram群组、访问官网、联系官方客服，的按钮，我应该怎么在Facebook时间管理工具里，创建数据集，安装像素代码，自动高级匹配里面，包括后面的怎么设置？
-ChatGPT 说：
-好的，下面我们一条条用企业化、务实的语言，拆解你想实现的三大按钮转化追踪（“加入 Telegram 群组”、 “访问官网”、 “联系官方客服”）在 Meta Events Manager（即原 Facebook 事件管理工具）里的流程：从数据源／数据集设置 → 像素安装 → 自动高级匹配 → 事件（点击）追踪 → 后续转化优化。你是互联网账号／社媒资源运营，这流程你看完后可以快速落地。
-
-一、数据源 / 数据集（Dataset）建立
-登录 Meta 广告账号 → 打开 Events Manager → 在左侧「数据源（Data sources）」里，选择「连接数据（Connect data）」 → 选 “网站（Web）” 或 “App”（你是网页落地页，就选 Web）。
-Leadsie
-+1
-
-系统会提示：创建一个新的数据集或使用已有数据集。注意：现代版本中，像素（Pixel）其实被整合到“数据集（Dataset）”体系内。
-Leadsie
-+1
-
-给这个数据源命名，例如 “NodeShort_Web_Dataset” 或 “NS_Landing_Page_DS”。
-
-安装 Pixel（下一步会讲）后，在数据源概览里即可看到数据流入情况。
-
-说明：你不必单独再建立“数据集”如果你只做网页；创建 Pixel 的流程里就会自动绑定数据集。
-Leadsie
-
-二、安装像素 & 自动高级匹配
-你前面已经把 Pixel 代码放进 index.html 里了，这是第一步。接下来还要在 Events Manager 里 开启自动高级匹配（Automatic Advanced Matching），提升匹配质量（让 Meta 能更准确识别用户、提升转化优化效果）。
-Facebook
-+1
-
-步骤如下：
-
-在 Events Manager → 数据源 → 选择你刚建的 Pixel 数据源 → 点击 Settings。
-
-在页面里找到「自动高级匹配（Automatic Advanced Matching）」选项，点击切换为 ON。
-Facebook
-
-你可以选择额外匹配参数：如 Email、手机号、姓/名、城市、州等（这些会经 hash 加密再发送给 Meta）。
-Verfacto
-+1
-
-确保你的 Pixel 代码里支持 fbq('init',…) 之后带上这些匹配参数（如果你做手动匹配）。如果你只是用自动模式，代码里无需改动。
-Facebook 开发者
-
-提示：匹配参数越丰富、越准确，你的「事件匹配质量（Event Match Quality）」越高，投放优化越有效。
-Ingest Labs
-
-三、为「按钮点击」定义事件追踪
-你想追踪的三个按钮（加入 Telegram、访问官网、联系客服）属于点击事件，需要在网页上触发 fbq('track', …) 或你也可以用 URL 跳转 + Meta 的「事件设定工具（Event Setup Tool）」来实现。
-
-方法 1：手动代码方式
-在按钮的 HTML 上添加 onclick 或在脚本里监听点击，然后调用 fbq 事件。示例如下（你可以插入到你之前的 index.html）：
-
-<a href="https://t.me/NodeShortVN" target="_blank"
-   onclick="fbq('track', 'JoinTelegram', {button_name:'Join Telegram'});">
-  加入 Telegram 官方群组
-</a>
-
-<a href="https://www.nodeshort.com" target="_blank"
-   onclick="fbq('track', 'VisitWebsite', {button_name:'Visit Website'});">
-  访问官网
-</a>
-
-<a href="https://t.me/NodeShort001" target="_blank"
-   onclick="fbq('track', 'ContactSupport', {button_name:'Contact Support'});">
-  联系官方客服
-</a>
-这样，当用户点击按钮时，会向 Meta 发送事件：JoinTelegram，VisitWebsite，ContactSupport。你可以在 Events Manager → 数据源 → 测试事件中看到这些。
-
-方法 2：使用 Event Setup 工具（适合无代码或少代码团队）
-在 Events Manager → 数据源 → 点击 “事件设定（Event Setup）” → 选择 “通过网站URL” → 输入你的落地页 URL。
-Leadsie
-
-浏览页面后，工具会检测可点击按钮。你选择一个按钮 → 设定其事件类型（例如 "Lead"、"Contact" 或你可自定义） → 保存。
-
-对三个按钮分别设置。这样你无需手动改很多代码，Meta 会在后台帮你捕捉点击。
-
-建议对你来说：
-因为你是运营账号、流程简化为王，同时需要精准数据 → 推荐使用“手动代码方式 + 自动匹配开启”模式。这样你完全控制事件名称、参数、数据层顺序。
-
-四、在 Meta 中创建“转化事件” & 优化目标
-在 Events Manager 中看到你的按钮点击事件后，去 Ads Manager 创建一个广告系列或编辑现有广告。
-
-在广告系列层级选择“转化（Conversions）”为目标。
-
-在广告集里，选择你的数据源 → 选择你刚定义的按钮点击事件比如 VisitWebsite 或 ContactSupport 作为转化。
-
-给它设定一个 “最低 ROAS” 或 “转化价值”如果你量化。
-
-在广告上你也可以建立 “再营销目标”比如：点击加入 Telegram 的用户 → 制作为 “已点击但未加入” 的再营销受众。
-
-五、数据验证 &优化机制
-在 Events Manager → 测试事件（Test Events）或实时活动里，点击按钮看是否即时显示事件。
-
-查看「事件匹配质量（Event Match Quality）」指标：如果低，说明匹配参数（如邮箱、电话）少，需改善。
-Ingest Labs
-
-如果你还用 Conversions API（服务器端）也需设置 event_id 防止重复。
-Facebook 开发者
-+1
-
-每隔一周回顾：哪些按钮点击最多、哪些转化少、广告 spend 布局是否合理、是否需调整按钮文案或CTA颜色。
-
-如果你愿意，我可以帮你 构建一份专属于 NodeShort 的事件追踪方案表格（包括按钮名称 → 事件名称 → 参数 →预期值），可以直接给开发或运营执行。你要这个吗？
-
-您说：
-方法 1：手动代码方式给我添加到这个代码里。并且不影响我源代码的运行
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NodeShort 落地页 · 含客服按钮版本</title>
-
-  <!-- Meta Pixel Code (插入于 <head>，不影响现有样式与脚本) -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '4246326045691268');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=4246326045691268&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .fade-carousel { position: relative; height: clamp(260px, 55vw, 520px); overflow: hidden; border-radius: 14px; }
-    .fade-carousel .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
-    .fade-carousel .slide.active { opacity: 1; }
-    .carousel-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; padding: 4px 8px; border-radius: 9999px; background: rgba(0,0,0,.2); }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255,255,255,0.6); cursor: pointer; transition: transform .2s, background-color .2s; }
-    .dot.active { background-color: #f43f5e; transform: scale(1.1); }
-  </style>
-</head>
-<body class="bg-gradient-to-b from-pink-50 to-rose-50 text-zinc-800">
-  <!-- 顶部品牌区 -->
-  <section class="text-center py-10 bg-gradient-to-r from-pink-100 to-orange-100">
-    <img src="images/水印logo.png" alt="NodeShort Logo" class="h-24 md:h-28 mx-auto"/>
-    <h1 class="text-2xl md:text-4xl font-bold text-rose-700 mt-3">每一部剧，都是你的收益剧场</h1>
-    <p class="mt-2 text-zinc-700 text-sm md:text-base">看剧、娱乐、收益三合一，全新体验影视社交生态</p>
-    <div class="mt-5 flex flex-col md:flex-row items-center justify-center gap-3">
-      <a href="https://t.me/NodeShortVN" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">加入 Telegram 官方群组</a>
-      <a href="https://www.nodeshort.com" target="_blank" class="px-6 py-3 rounded bg-rose-500 hover:bg-rose-600 text-white font-semibold shadow">访问官网</a>
-      <a href="https://t.me/NodeShort001" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">联系官方客服</a>
-    </div>
-  </section>
-
-  <!-- 平台亮点 -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10 bg-gradient-to-r from-fuchsia-50 to-rose-50 rounded-xl py-6 shadow-sm">
-    <h2 class="text-center text-xl md:text-2xl font-semibold text-rose-700">平台亮点</h2>
-    <div class="grid grid-cols-2 gap-4 mt-5 md:grid-cols-4">
-      <div class="text-center">
-        <h3 class="text-rose-800 font-semibold">边看剧即挖矿</h3>
-        <p class="text-sm text-zinc-600 mt-1">一边追剧一边领取金币和DP币。</p>
-      </div>
-      <div class="text-center">
-        <h3 class="text-rose-800 font-semibold">DP币产出机制</h3>
-        <p class="text-sm text-zinc-600 mt-1">核心代币DP每日释放，与影视收益挂钩。</p>
-      </div>
-      <div class="text-center">
-        <h3 class="text-rose-800 font-semibold">NFT身份徽章</h3>
-        <p class="text-sm text-zinc-600 mt-1">徽章解锁特权，提升收益上限。</p>
-      </div>
-      <div class="text-center">
-        <h3 class="text-rose-800 font-semibold">多层级推荐</h3>
-        <p class="text-sm text-zinc-600 mt-1">邀请好友赚佣金，搭建团队。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 平台界面展示 -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10 text-center">
-    <h2 class="text-xl md:text-2xl font-semibold text-rose-700">平台界面展示</h2>
-    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-      <img class="w-full rounded-lg shadow" src="images/首页界面.png" alt="首页界面"/>
-      <img class="w-full rounded-lg shadow" src="images/剧场界面.png" alt="剧场界面"/>
-      <img class="w-full rounded-lg shadow" src="images/排行榜界面.png" alt="排行榜界面"/>
-    </div>
-  </section>
-
-  <!-- 代币与徽章生态 -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10">
-    <h2 class="text-center text-xl md:text-2xl font-semibold text-rose-700">代币与徽章生态</h2>
-    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
-        <div class="flex items-center justify-center">
-          <img src="images/金币.png" alt="金币 GDC" class="w-16 h-16 object-contain" />
-        </div>
-        <h3 class="mt-3 text-center font-semibold text-zinc-800">边看剧边赚金币（GDC）</h3>
-        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">通过签到、抽奖、观看短剧获得 GDC。金币用于解锁剧集、参与抽奖、兑换奖励——注意力就是价值。</p>
-      </article>
-      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
-        <div class="flex items-center justify-center">
-          <img src="images/DP币.png" alt="DP币" class="w-16 h-16 object-contain" />
-        </div>
-        <h3 class="mt-3 text-center font-semibold text-zinc-800">DP币——真实收益凭证</h3>
-        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">平台核心代币，与平台收入与影视资产挂钩。“看剧即挖矿”，行为参与分红与回购，娱乐转化为真实价值。</p>
-      </article>
-      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
-        <div class="flex items-center justify-center">
-          <img src="images/钻石.png" alt="NDC 钻石" class="w-16 h-16 object-contain" />
-        </div>
-        <h3 class="mt-3 text-center font-semibold text-zinc-800">NDC——通往资产世界的钥匙</h3>
-        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">与美元 1:1 锚定，作为支付入口与价值枢纽。可用于购买 NFT 徽章、开通 VIP，打通内容与金融。</p>
-      </article>
-      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
-        <div class="flex items-center justify-center">
-          <img src="images/越南.png" alt="越南徽章 NFT" class="w-16 h-16 object-contain" />
-        </div>
-        <h3 class="mt-3 text-center font-semibold text-zinc-800">越南徽章 NFT——身份与特权</h3>
-        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">首批内容金融化参与者专属徽章。持有可获得 DP 币额外释放、专属剧集与社区治理权等增益。</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- 轮播图区 -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10">
-    <div class="fade-carousel shadow ring-1 ring-black/5" id="carousel">
-      <div class="slide active" style="background-image:url('images/3.png')"></div>
-      <div class="slide" style="background-image:url('images/13.png')"></div>
-      <div class="slide" style="background-image:url('images/65.png')"></div>
-      <div class="slide" style="background-image:url('images/75.png')"></div>
-      <div class="slide" style="background-image:url('images/83.png')"></div>
-      <div class="slide" style="background-image:url('images/106.png')"></div>
-      <div class="slide" style="background-image:url('images/116.png')"></div>
-      <div class="slide" style="background-image:url('images/138.png')"></div>
-      <div class="carousel-dots" id="dots"></div>
-    </div>
-  </section>
-
-  <!-- 底部CTA -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10">
-    <div class="rounded-xl p-6 bg-gradient-to-r from-orange-400 to-rose-500 text-center shadow flex flex-col md:flex-row items-center justify-center gap-3">
-      <a href="https://t.me/NodeShortVN" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">加入 Telegram 群组</a>
-      <a href="https://www.nodeshort.com/h5/#/pages/login/register?code=9HKKIP" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">立即注册</a>
-      <a href="https://t.me/NodeShort001" target="_blank" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">联系官方客服</a>
-    </div>
-  </section>
-
-  <footer class="mt-10 py-6 bg-rose-600">
-    <p class="text-center text-white text-xs">免责声明：本服务内容仅供娱乐，不构成任何投资建议。</p>
-  </footer>
-
-  <script>
-    const slides = Array.from(document.querySelectorAll('.fade-carousel .slide'));
-    const dotsContainer = document.getElementById('dots');
-    let idx = 0, timer = null;
-
-    slides.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', () => jump(i));
-      dotsContainer.appendChild(dot);
-    });
-
-    function show(i){
-      slides[idx].classList.remove('active');
-      dotsContainer.children[idx].classList.remove('active');
-      idx = (i + slides.length) % slides.length;
-      slides[idx].classList.add('active');
-      dotsContainer.children[idx].classList.add('active');
-    }
-    function next(){ show(idx + 1); }
-    function start(){ stop(); timer = setInterval(next, 3000); }
-    function stop(){ if (timer) clearInterval(timer); }
-    function jump(i){ show(i); start(); }
-
-    start();
-    const carousel = document.getElementById('carousel');
-    carousel.addEventListener('mouseenter', stop);
-    carousel.addEventListener('mouseleave', start);
-  </script>
-</body>
-</html>
-ChatGPT 说：
-
-已思考 17s
-已把**方法一（手动代码）**无缝植入到你当前的页面里，且不破坏原逻辑与样式：
-
-顶部三枚按钮 & 底部两枚（“加入 Telegram”“访问官网”“联系官方客服”）均已挂载内联 onclick，触发自定义事件：
-
-JoinTelegram
-
-VisitWebsite
-
-ContactSupport
-
-为避免像素脚本尚未加载时报错，使用了安全调用：window.fbq && fbq('track', ... )
-
-同一事件在顶部/底部分别打上 placement 参数（top / bottom），方便你在报表里分位点分析。
-
-你可以在右侧 canvas 直接全选复制，覆盖到 index.html。
-如需进一步把“立即注册”加埋点（例如 CompleteRegistration 或 Lead），我可以立刻追加。
-
-上线验证清单：
-
-Events Manager →「测试事件」里输入落地页 URL；
-
-自测点击三枚按钮，确认 JoinTelegram、VisitWebsite、ContactSupport 事件进入；
-
-打开 Pixel Helper 检查事件与参数；
-
-若有 CDN 缓存，执行一次 Purge 或加 ?v=时间戳 强刷。
-
-下一步可以在广告集把优化事件切到你最关注的按钮事件，并用该事件建立受众做再营销与 Lookalike。
-
-您说：
-立即注册”加埋点，
-ChatGPT 说：
-已为“立即注册”按钮添加 CompleteRegistration 埋点事件，触发方式与其他按钮一致（安全调用 window.fbq），不会影响原代码执行逻辑或样式。
-事件参数中包含 {button_name:'Register Now', placement:'bottom'}，方便你在 Meta 事件管理器中区分来源与位置。
-
-测试时请在 Events Manager → Test Events 中点击“立即注册”，确认是否正常上报 CompleteRegistration 事件。
-
-您说：
-我要怎么测试我的像素是否安装成功，事件能获取到
-ChatGPT 说：
-
-已思考 15s
-给你一套“从0到1”的测试闭环，3分钟跑完能定位 90% 问题。直给、可执行：
-
-A. 快速验证像素是否装上
-浏览器开发者工具 → Network
-
-打开你的落地页，F12 → Network → 搜索 fbevents.js
-看到 https://connect.facebook.net/en_US/fbevents.js 且 状态 200 = 代码已加载。
-
-再搜索 tr?id=4246326045691268
-看到 https://www.facebook.com/tr?id=4246326045691268&ev=PageView... 且 状态 200 = PageView 已上报。
-
-Meta Pixel Helper（Chrome 扩展）
-
-安装 Meta Pixel Helper → 打开你的落地页图标会亮。
-
-展开详情应看到：1 Pixel detected，有 PageView 事件，Pixel ID 要与 4246326045691268 一致。
-
-若报错显示 “缺少必需参数/Blocked”，按下文排查。
-
-B. 事件（按钮点击）是否上报
-你页面里我们已经挂了（示例）：
-
-JoinTelegram（加入 Telegram）
-
-VisitWebsite（访问官网）
-
-ContactSupport（联系官方客服）
-
-CompleteRegistration（立即注册）
-
-方法1｜Events Manager 实时看数
-
-进 Meta Events Manager → 选你的 Pixel → 左侧点 Test Events（测试事件）。
-
-在右侧输入你的落地页 URL，点 Open Website。
-
-回到你的页面，手动点击四个按钮。
-
-切回 Test Events 面板，应实时出现对应事件名与参数（含我们加的 placement、button_name）。
-
-方法2｜开发者工具直接触发
-打开控制台（Console），手动触发一发，确认管道通畅：
-
-// 验证 PageView 之外的上报通道
-window.fbq && fbq('track', 'VisitWebsite', {from:'console_test'});
-// 或者（若你后续改成自定义事件推荐写法）
-window.fbq && fbq('trackCustom', 'VisitWebsite', {from:'console_test'});
-Events Manager 的 Test Events 面板应秒回显示。
-
-C. 常见异常 & 快速修复
-看不到 PageView
-
-检查 <head> 是否包含像素代码；是否有广告拦截插件；是否本地 file:// 打开（改用 http(s) 域名）。
-
-按钮事件不上报
-
-先看控制台是否有报错（比如 fbq is not defined → 说明像素脚本未加载就点击了，通常刷新后再点或等 100ms）。
-
-我们的代码用了安全调用 window.fbq && ...，理论上不会报错；如果 Test Events 仍无数据，尝试把事件写法由
-fbq('track','JoinTelegram', {...}) 改为 fbq('trackCustom','JoinTelegram', {...}) 再测一次。
-
-标准事件用 track，自定义事件建议用 trackCustom。
-
-Pixel Helper 显示 Pixel ID 不一致
-
-说明页面上同时装了别的 Pixel 或旧 ID，清理重复安装，确保只保留 4246326045691268。
-
-跨域跳转导致漏数
-
-你是外跳 Telegram/官网，点击即跳走，像素来不及上报的概率很小，但为保险可在 onclick 里延时 150–300ms 再跳转（需要把 <a> 改为 JS 跳转）。现在先用现有实现测试，若存在漏数再升级为“延时跳转版”。
-
-D. 你现在就能做的极简回归测试脚本
-打开控制台逐条运行（应返回 undefined 且 Events Manager 有数据）：
-
-// 1) 核验 fbq 是否可用
-typeof fbq === 'function'
-
-// 2) 人工打一条自定义测试事件
-fbq('trackCustom', 'QA_Click_Test', {env:'staging', ts: Date.now()})
-
-// 3) 手动回放四个按钮对应事件名（不点击也能验证链路）
-fbq('track', 'JoinTelegram', {from:'console_QA'})
-fbq('track', 'VisitWebsite', {from:'console_QA'})
-fbq('track', 'ContactSupport', {from:'console_QA'})
-fbq('track', 'CompleteRegistration', {from:'console_QA'})
-E. 通过率指标（你在面板应该看到）
-Overview/概览：有稳定的 PageView 曲线。
-
-Test Events/测试事件：点击后实时显示 4 个事件。
-
-Diagnostics/诊断：无严重错误（黄色提示通常为建议）。
-
-Event Match Quality/匹配质量：打开 自动高级匹配 后评分应提升（非硬性，但能帮助投放）。
-
-——
-如果你愿意，我可以把“延时跳转版”的按钮埋点（确保 100% 上报）直接替换到你的 canvas 代码里，并且附带一个 debug 模式（自动在控制台打印已上报事件），方便你或团队 QA。
-
-您说：
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NodeShort 落地页 · 含客服按钮版本</title>
-
-  <!-- Meta Pixel Code (插入于 <head>，不影响现有样式与脚本) -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '4246326045691268');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=4246326045691268&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .fade-carousel { position: relative; height: clamp(260px, 55vw, 520px); overflow: hidden; border-radius: 14px; }
-    .fade-carousel .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
-    .fade-carousel .slide.active { opacity: 1; }
-    .carousel-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; padding: 4px 8px; border-radius: 9999px; background: rgba(0,0,0,.2); }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255,255,255,0.6); cursor: pointer; transition: transform .2s, background-color .2s; }
-    .dot.active { background-color: #f43f5e; transform: scale(1.1); }
-  </style>
-</head>
-<body class="bg-gradient-to-b from-pink-50 to-rose-50 text-zinc-800">
-  <!-- 顶部品牌区 -->
-  <section class="text-center py-10 bg-gradient-to-r from-pink-100 to-orange-100">
-    <img src="images/水印logo.png" alt="NodeShort Logo" class="h-24 md:h-28 mx-auto"/>
-    <h1 class="text-2xl md:text-4xl font-bold text-rose-700 mt-3">每一部剧，都是你的收益剧场</h1>
-    <p class="mt-2 text-zinc-700 text-sm md:text-base">看剧、娱乐、收益三合一，全新体验影视社交生态</p>
-    <div class="mt-5 flex flex-col md:flex-row items-center justify-center gap-3">
-      <a href="https://t.me/NodeShortVN" target="_blank" onclick="window.fbq && fbq('track','JoinTelegram',{button_name:'Join Telegram',placement:'top'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">加入 Telegram 官方群组</a>
-      <a href="https://www.nodeshort.com" target="_blank" onclick="window.fbq && fbq('track','VisitWebsite',{button_name:'Visit Website',placement:'top'});" class="px-6 py-3 rounded bg-rose-500 hover:bg-rose-600 text-white font-semibold shadow">访问官网</a>
-      <a href="https://t.me/NodeShort001" target="_blank" onclick="window.fbq && fbq('track','ContactSupport',{button_name:'Contact Support',placement:'top'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">联系官方客服</a>
-    </div>
-  </section>
-
-  <!-- 平台亮点 -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10 bg-gradient-to-r from-fuchsia-50 to-rose-50 rounded-xl py-6 shadow-sm">
-    <h2 class="text-center text-xl md:text-2xl font-semibold text-rose-700">平台亮点</h2>
-    <div class="grid grid-cols-2 gap-4 mt-5 md:grid-cols-4">
-      <div class="text-center">
-        <h3 class="text-rose-800 font-semibold">边看剧即挖矿</h3>
-        <p class="text-sm text-zinc-600 mt-1">一边追剧一边领取金币和DP币。</p>
-      </div>
-      <div class="text-center">
-        <h3 class="text-rose-800 font-semibold">DP币产出机制</h3>
-        <p class="text-sm text-zinc-600 mt-1">核心代币DP每日释放，与影视收益挂钩。</p>
-      </div>
-      <div class="text-center">
-        <h3 class="text-rose-800 font-semibold">NFT身份徽章</h3>
-        <p class="text-sm text-zinc-600 mt-1">徽章解锁特权，提升收益上限。</p>
-      </div>
-      <div class="text-center">
-        <h3 class="text-rose-800 font-semibold">多层级推荐</h3>
-        <p class="text-sm text-zinc-600 mt-1">邀请好友赚佣金，搭建团队。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 平台界面展示 -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10 text-center">
-    <h2 class="text-xl md:text-2xl font-semibold text-rose-700">平台界面展示</h2>
-    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-      <img class="w-full rounded-lg shadow" src="images/首页界面.png" alt="首页界面"/>
-      <img class="w-full rounded-lg shadow" src="images/剧场界面.png" alt="剧场界面"/>
-      <img class="w-full rounded-lg shadow" src="images/排行榜界面.png" alt="排行榜界面"/>
-    </div>
-  </section>
-
-  <!-- 代币与徽章生态 -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10">
-    <h2 class="text-center text-xl md:text-2xl font-semibold text-rose-700">代币与徽章生态</h2>
-    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
-        <div class="flex items-center justify-center">
-          <img src="images/金币.png" alt="金币 GDC" class="w-16 h-16 object-contain" />
-        </div>
-        <h3 class="mt-3 text-center font-semibold text-zinc-800">边看剧边赚金币（GDC）</h3>
-        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">通过签到、抽奖、观看短剧获得 GDC。金币用于解锁剧集、参与抽奖、兑换奖励——注意力就是价值。</p>
-      </article>
-      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
-        <div class="flex items-center justify-center">
-          <img src="images/DP币.png" alt="DP币" class="w-16 h-16 object-contain" />
-        </div>
-        <h3 class="mt-3 text-center font-semibold text-zinc-800">DP币——真实收益凭证</h3>
-        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">平台核心代币，与平台收入与影视资产挂钩。“看剧即挖矿”，行为参与分红与回购，娱乐转化为真实价值。</p>
-      </article>
-      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
-        <div class="flex items-center justify-center">
-          <img src="images/钻石.png" alt="NDC 钻石" class="w-16 h-16 object-contain" />
-        </div>
-        <h3 class="mt-3 text-center font-semibold text-zinc-800">NDC——通往资产世界的钥匙</h3>
-        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">与美元 1:1 锚定，作为支付入口与价值枢纽。可用于购买 NFT 徽章、开通 VIP，打通内容与金融。</p>
-      </article>
-      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
-        <div class="flex items-center justify-center">
-          <img src="images/越南.png" alt="越南徽章 NFT" class="w-16 h-16 object-contain" />
-        </div>
-        <h3 class="mt-3 text-center font-semibold text-zinc-800">越南徽章 NFT——身份与特权</h3>
-        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">首批内容金融化参与者专属徽章。持有可获得 DP 币额外释放、专属剧集与社区治理权等增益。</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- 轮播图区 -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10">
-    <div class="fade-carousel shadow ring-1 ring-black/5" id="carousel">
-      <div class="slide active" style="background-image:url('images/3.png')"></div>
-      <div class="slide" style="background-image:url('images/13.png')"></div>
-      <div class="slide" style="background-image:url('images/65.png')"></div>
-      <div class="slide" style="background-image:url('images/75.png')"></div>
-      <div class="slide" style="background-image:url('images/83.png')"></div>
-      <div class="slide" style="background-image:url('images/106.png')"></div>
-      <div class="slide" style="background-image:url('images/116.png')"></div>
-      <div class="slide" style="background-image:url('images/138.png')"></div>
-      <div class="carousel-dots" id="dots"></div>
-    </div>
-  </section>
-
-  <!-- 底部CTA -->
-  <section class="max-w-screen-md mx-auto px-4 mt-10">
-    <div class="rounded-xl p-6 bg-gradient-to-r from-orange-400 to-rose-500 text-center shadow flex flex-col md:flex-row items-center justify-center gap-3">
-      <a href="https://t.me/NodeShortVN" target="_blank" onclick="window.fbq && fbq('track','JoinTelegram',{button_name:'Join Telegram',placement:'bottom'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">加入 Telegram 群组</a>
-      <a href="https://www.nodeshort.com/h5/#/pages/login/register?code=9HKKIP" target="_blank" onclick="window.fbq && fbq('track','CompleteRegistration',{button_name:'Register Now',placement:'bottom'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">立即注册</a>
-      <a href="https://t.me/NodeShort001" target="_blank" onclick="window.fbq && fbq('track','ContactSupport',{button_name:'Contact Support',placement:'bottom'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">联系官方客服</a>
-    </div>
-  </section>
-
-  <footer class="mt-10 py-6 bg-rose-600">
-    <p class="text-center text-white text-xs">免责声明：本服务内容仅供娱乐，不构成任何投资建议。</p>
-  </footer>
-
-  <script>
-    const slides = Array.from(document.querySelectorAll('.fade-carousel .slide'));
-    const dotsContainer = document.getElementById('dots');
-    let idx = 0, timer = null;
-
-    slides.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', () => jump(i));
-      dotsContainer.appendChild(dot);
-    });
-
-    function show(i){
-      slides[idx].classList.remove('active');
-      dotsContainer.children[idx].classList.remove('active');
-      idx = (i + slides.length) % slides.length;
-      slides[idx].classList.add('active');
-      dotsContainer.children[idx].classList.add('active');
-    }
-    function next(){ show(idx + 1); }
-    function start(){ stop(); timer = setInterval(next, 3000); }
-    function stop(){ if (timer) clearInterval(timer); }
-    function jump(i){ show(i); start(); }
-
-    start();
-    const carousel = document.getElementById('carousel');
-    carousel.addEventListener('mouseenter', stop);
-    carousel.addEventListener('mouseleave', start);
-  </script>
-</body>
-</html>
-将所有的中文，改为越南文
-ChatGPT 说：
-已将你的整个落地页从中文完整翻译为越南语版本，包括标题、说明、按钮文字和免责声明，同时保留了所有 Facebook 像素埋点、Tailwind 样式和动画逻辑不变。
-现在可直接复制部署到越南市场版本的站点，像素追踪与视觉表现都会保持一致。
-
-您说：
-已上传的图片
-已上传的图片
-这两个地方改成Liên hệ CSKH，然后以canvas迷失呈现出来
-ChatGPT 说：
-
-已思考 17s
-Node Short Landing Index With Fbpixel
-· html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -798,11 +34,142 @@ Node Short Landing Index With Fbpixel
   </style>
 </head>
 <body class="bg-gradient-to-b from-pink-50 to-rose-50 text-zinc-800">
-已改：页面中两处按钮文案统一为「Liên hệ CSKH」，并同步把像素事件参数里的 button_name 更新为 Liên hệ CSKH，事件名仍是 ContactSupport 不变。
-现在你可以在右侧 canvas 直接全选复制上传覆盖。需要把顶部那颗按钮改成红色主按钮或加图标（☎️）提升 CTR，我也可以顺手调样式。
+  <!-- Khu vực thương hiệu đầu trang -->
+  <section class="text-center py-10 bg-gradient-to-r from-pink-100 to-orange-100">
+    <img src="images/水印logo.png" alt="Logo NodeShort" class="h-24 md:h-28 mx-auto"/>
+    <h1 class="text-2xl md:text-4xl font-bold text-rose-700 mt-3">Mỗi bộ phim là một sân khấu lợi nhuận của bạn</h1>
+    <p class="mt-2 text-zinc-700 text-sm md:text-base">Xem phim, giải trí và kiếm tiền – Trải nghiệm hệ sinh thái video xã hội mới</p>
+    <div class="mt-5 flex flex-col md:flex-row items-center justify-center gap-3">
+      <a href="https://t.me/NodeShortVN" target="_blank" onclick="window.fbq && fbq('track','JoinTelegram',{button_name:'Tham gia Telegram',placement:'top'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">Tham gia nhóm Telegram chính thức</a>
+      <a href="https://www.nodeshort.com" target="_blank" onclick="window.fbq && fbq('track','VisitWebsite',{button_name:'Truy cập trang web',placement:'top'});" class="px-6 py-3 rounded bg-rose-500 hover:bg-rose-600 text-white font-semibold shadow">Truy cập trang web</a>
+      <a href="https://t.me/NodeShort001" target="_blank" onclick="window.fbq && fbq('track','ContactSupport',{button_name:'Liên hệ CSKH',placement:'top'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">Liên hệ CSKH</a>
+    </div>
+  </section>
 
+  <!-- Điểm nổi bật của nền tảng -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10 bg-gradient-to-r from-fuchsia-50 to-rose-50 rounded-xl py-6 shadow-sm">
+    <h2 class="text-center text-xl md:text-2xl font-semibold text-rose-700">Điểm nổi bật của nền tảng</h2>
+    <div class="grid grid-cols-2 gap-4 mt-5 md:grid-cols-4">
+      <div class="text-center">
+        <h3 class="text-rose-800 font-semibold">Vừa xem phim vừa khai thác</h3>
+        <p class="text-sm text-zinc-600 mt-1">Xem phim và nhận vàng cùng DP coin.</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-rose-800 font-semibold">Cơ chế phát hành DP coin</h3>
+        <p class="text-sm text-zinc-600 mt-1">Token cốt lõi DP phát hành hàng ngày, gắn liền lợi nhuận video.</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-rose-800 font-semibold">Huy hiệu NFT danh tính</h3>
+        <p class="text-sm text-zinc-600 mt-1">Mở khóa quyền lợi, tăng giới hạn thu nhập.</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-rose-800 font-semibold">Giới thiệu nhiều tầng</h3>
+        <p class="text-sm text-zinc-600 mt-1">Mời bạn bè và nhận hoa hồng, xây dựng đội nhóm.</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- Giao diện nền tảng -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10 text-center">
+    <h2 class="text-xl md:text-2xl font-semibold text-rose-700">Hiển thị giao diện nền tảng</h2>
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <img class="w-full rounded-lg shadow" src="images/首页界面.png" alt="Giao diện trang chủ"/>
+      <img class="w-full rounded-lg shadow" src="images/剧场界面.png" alt="Giao diện rạp phim"/>
+      <img class="w-full rounded-lg shadow" src="images/排行榜界面.png" alt="Bảng xếp hạng"/>
+    </div>
+  </section>
 
+  <!-- Hệ sinh thái Token và Huy hiệu -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10">
+    <h2 class="text-center text-xl md:text-2xl font-semibold text-rose-700">Hệ sinh thái Token & Huy hiệu</h2>
+    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
+        <div class="flex items-center justify-center">
+          <img src="images/金币.png" alt="Vàng GDC" class="w-16 h-16 object-contain" />
+        </div>
+        <h3 class="mt-3 text-center font-semibold text-zinc-800">Kiếm vàng (GDC) khi xem phim</h3>
+        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">Nhận GDC thông qua điểm danh, quay thưởng, xem phim ngắn. Dùng vàng để mở khóa tập phim, đổi quà, tham gia sự kiện – Sự chú ý có giá trị.</p>
+      </article>
+      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
+        <div class="flex items-center justify-center">
+          <img src="images/DP币.png" alt="DP coin" class="w-16 h-16 object-contain" />
+        </div>
+        <h3 class="mt-3 text-center font-semibold text-zinc-800">DP coin – Bằng chứng lợi nhuận thực</h3>
+        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">Token cốt lõi của nền tảng, liên kết doanh thu và tài sản phim. “Xem phim là khai thác”, chia sẻ doanh thu và mua lại, giải trí trở thành giá trị thực.</p>
+      </article>
+      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
+        <div class="flex items-center justify-center">
+          <img src="images/钻石.png" alt="Kim cương NDC" class="w-16 h-16 object-contain" />
+        </div>
+        <h3 class="mt-3 text-center font-semibold text-zinc-800">NDC – Chìa khóa bước vào thế giới tài sản</h3>
+        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">Được neo 1:1 với USD, làm trung tâm thanh toán và giá trị. Dùng để mua NFT, mở VIP, kết nối nội dung và tài chính.</p>
+      </article>
+      <article class="rounded-xl bg-white/70 backdrop-blur-sm border border-rose-100 p-4 shadow-sm">
+        <div class="flex items-center justify-center">
+          <img src="images/越南.png" alt="Huy hiệu Việt Nam NFT" class="w-16 h-16 object-contain" />
+        </div>
+        <h3 class="mt-3 text-center font-semibold text-zinc-800">Huy hiệu Việt Nam NFT – Danh tính & Quyền lợi</h3>
+        <p class="mt-2 text-sm text-zinc-600 leading-relaxed">Dành cho người tham gia đầu tiên của nội dung tài chính hóa. Nắm giữ huy hiệu để nhận thêm DP coin, phim độc quyền và quyền quản trị cộng đồng.</p>
+      </article>
+    </div>
+  </section>
 
-未选择任何文件未选择任何文件
-ChatGPT 也可能会犯错。请核查重要信息。
+  <!-- Khu vực trình chiếu -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10">
+    <div class="fade-carousel shadow ring-1 ring-black/5" id="carousel">
+      <div class="slide active" style="background-image:url('images/3.png')"></div>
+      <div class="slide" style="background-image:url('images/13.png')"></div>
+      <div class="slide" style="background-image:url('images/65.png')"></div>
+      <div class="slide" style="background-image:url('images/75.png')"></div>
+      <div class="slide" style="background-image:url('images/83.png')"></div>
+      <div class="slide" style="background-image:url('images/106.png')"></div>
+      <div class="slide" style="background-image:url('images/116.png')"></div>
+      <div class="slide" style="background-image:url('images/138.png')"></div>
+      <div class="carousel-dots" id="dots"></div>
+    </div>
+  </section>
+
+  <!-- CTA dưới cùng -->
+  <section class="max-w-screen-md mx-auto px-4 mt-10">
+    <div class="rounded-xl p-6 bg-gradient-to-r from-orange-400 to-rose-500 text-center shadow flex flex-col md:flex-row items-center justify-center gap-3">
+      <a href="https://t.me/NodeShortVN" target="_blank" onclick="window.fbq && fbq('track','JoinTelegram',{button_name:'Tham gia Telegram',placement:'bottom'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">Tham gia nhóm Telegram</a>
+      <a href="https://www.nodeshort.com/h5/#/pages/login/register?code=9HKKIP" target="_blank" onclick="window.fbq && fbq('track','CompleteRegistration',{button_name:'Đăng ký ngay',placement:'bottom'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">Đăng ký ngay</a>
+      <a href="https://t.me/NodeShort001" target="_blank" onclick="window.fbq && fbq('track','ContactSupport',{button_name:'Liên hệ CSKH',placement:'bottom'});" class="px-6 py-3 rounded bg-white text-rose-600 font-semibold border border-rose-200 shadow-sm">Liên hệ CSKH</a>
+    </div>
+  </section>
+
+  <footer class="mt-10 py-6 bg-rose-600">
+    <p class="text-center text-white text-xs">Tuyên bố miễn trừ trách nhiệm: Dịch vụ này chỉ nhằm mục đích giải trí, không cấu thành lời khuyên đầu tư.</p>
+  </footer>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.fade-carousel .slide'));
+    const dotsContainer = document.getElementById('dots');
+    let idx = 0, timer = null;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => jump(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function show(i){
+      slides[idx].classList.remove('active');
+      dotsContainer.children[idx].classList.remove('active');
+      idx = (i + slides.length) % slides.length;
+      slides[idx].classList.add('active');
+      dotsContainer.children[idx].classList.add('active');
+    }
+    function next(){ show(idx + 1); }
+    function start(){ stop(); timer = setInterval(next, 3000); }
+    function stop(){ if (timer) clearInterval(timer); }
+    function jump(i){ show(i); start(); }
+
+    start();
+    const carousel = document.getElementById('carousel');
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+  </script>
+</body>
+</html>
